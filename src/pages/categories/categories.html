@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Categories</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button class="container-item" ion-item *ngFor="let item of items">
+      <div class="item">
+        <img src="{{bucketUrl}}/cat{{item.id}}.jpg" alt="{{item.name}}" />
+        <h2>{{item.name}}</h2>
+      </div>
+    </button>
+  </ion-list>
+</ion-content>

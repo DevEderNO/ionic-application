@@ -1,0 +1,11 @@
+page-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+page-home h3 {
+  text-align: center;
+}
+page-home img {
+  width: 80%;
+}

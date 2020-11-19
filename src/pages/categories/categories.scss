@@ -1,0 +1,30 @@
+page-categories {
+  .container-item {
+    background: #ffffff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #f22e63;
+    box-sizing: border-box;
+
+    + .container-item {
+      margin-top: 10px;
+    }
+  }
+  .item {
+    border-radius: 7px;
+    display: flex;
+    padding: 0 10px;
+
+    img {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      margin-right: 15px;
+      border: 1px solid #FF6480;
+    }
+
+    strong {
+      flex: 1;
+    }
+  }
+}

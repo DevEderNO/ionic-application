@@ -1,3 +1,72 @@
-page-home {
+@use "sass:map";
+@import "../../theme/variables.scss";
+$primary: map-get(
+  $map: $colors,
+  $key: "primary",
+);
 
+page-home {
+  .img-logo {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  main {
+    align-self: center;
+    margin: auto;
+    margin-top: 40px;
+    width: 80%;
+
+    form {
+      margin-top: 40px;
+      margin-bottom: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      input {
+        width: 100%;
+      }
+
+      > p {
+        width: 100%;
+        margin-top: 5px;
+        text-align: right;
+      }
+
+      button {
+        margin-top: 40px;
+        padding: 10px 50px !important;
+        background: linear-gradient(135deg, #ff6480 0%, #f22e63 100%);
+        color: $light;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 21px;
+        border-radius: 100px;
+      }
+
+      > span {
+        margin: 10px 0;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 18px;
+        color: $primary;
+      }
+
+      section {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+
+        img {
+          width: 35px;
+          height: 35px;
+
+          + img {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
 }

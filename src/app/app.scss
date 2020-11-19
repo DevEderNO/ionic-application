@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +13,60 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+@use "sass:map";
+@import "../theme/variables.scss";
+$primary: map-get(
+  $map: $colors,
+  $key: "primary",
+);
+$light: map-get(
+  $map: $colors,
+  $key: "light",
+);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+body {
+  background: #312e38;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+input,
+button {
+  font-family: "Poppins", serif;
+  font-size: 16px;
+  color: #030303;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  font-weight: 500;
+  font-weight: bold;
+  color: $primary;
+  font-style: normal;
+}
+
+p {
+  color: #030303;
+}
+
+h1 {
+  line-height: 33px;
+  font-weight: 700;
+}
+
+button {
+  cursor: pointer;
+}
