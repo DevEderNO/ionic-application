@@ -1,8 +1,13 @@
 <ion-content padding>
-  <img src="assets/icon/arrow-back-outline.svg" alt="arrow-back">
+  <img src="assets/icon/arrow-back-outline.svg" (click)="backPage()" alt="arrow-back" />
 
   <h1>Profile</h1>
 
-  {{client?.email}}
-
+  <main>
+    <img
+      [src]="client?.image_url || 'assets/imgs/avatar-blank.png'"
+      alt="avatar"
+    />
+    <strong>{{client?.name}}</strong>
+  </main>
 </ion-content>

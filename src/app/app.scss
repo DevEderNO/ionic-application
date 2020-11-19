@@ -54,7 +54,6 @@ h6,
 strong {
   font-weight: 500;
   font-weight: bold;
-  color: $primary;
   font-style: normal;
 }
 
@@ -65,6 +64,7 @@ p {
 h1 {
   line-height: 33px;
   font-weight: 700;
+  color: $primary;
 }
 
 button {
