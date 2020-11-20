@@ -10,14 +10,13 @@ export class ClientService {
   constructor(public http: HttpClient, public storageService: StorageService) {}
 
   findByEmail(email: string): Observable<IClientDTO> {
-    let token = this.storageService.getLocalUser().token;
-    let authHeader = new HttpHeaders({ Authorization: "Bearer " + token });
-
     return this.http.get<IClientDTO>(
-      `${API_CONFIG.baseUrl}/clients/email?value=${email}`,
-      {
-        headers: authHeader,
-      }
+      `${API_CONFIG.baseUrl}/clients/email?value=${email}`
     );
+  }
+
+  getImageFromBucket(id: string): Observable<any> {
+    let url = `${API_CONFIG.bucketBaseUrl}/cp${id}.jpg`;
+    return this.http.get(url, { responseType: "blob" });
   }
 }

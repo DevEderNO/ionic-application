@@ -1,0 +1,22 @@
+page-signup {
+  img {
+    width: 100%;
+  }
+  main {
+    align-self: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .item .item-md {
+        padding-left: 0;
+      }
+    }
+  }
+}

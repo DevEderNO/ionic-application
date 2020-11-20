@@ -1,13 +1,30 @@
 <ion-content padding>
-  <img src="assets/icon/arrow-back-outline.svg" (click)="backPage()" alt="arrow-back" />
-
-  <h1>Profile</h1>
+  <header>
+    <img
+      src="assets/icon/arrow-back-outline.svg"
+      (click)="backPage()"
+      alt="arrow-back"
+    />
+  </header>
 
   <main>
-    <img
-      [src]="client?.image_url || 'assets/imgs/avatar-blank.png'"
-      alt="avatar"
-    />
-    <strong>{{client?.name}}</strong>
+    <h1>Profile</h1>
+    <section>
+      <img
+        [src]="client?.image_url || 'assets/imgs/avatar-blank.png'"
+        alt="avatar"
+      />
+      <strong>{{client?.name}}</strong>
+      <span>{{client?.email}}</span>
+    </section>
+    <div class="address">
+      <strong>ADRESSES</strong>
+      <div class="address-item" *ngFor="let address of adresses">
+        <span>{{address}}</span>
+      </div>
+    </div>
+    <div class="account-information">
+
+    </div>
   </main>
 </ion-content>
