@@ -5,31 +5,194 @@
     <h1>Create Account</h1>
     <p>Hi, kindly fill in the form to proceed combat</p>
 
-    <form action="">
-      <ion-item class="ion-no-padding">
+    <form
+      [formGroup]="formGroup"
+      (ngSubmit)="handleSubmit(); $event.preventDefault()"
+    >
+      <ion-item>
         <ion-input
-          name="fullname"
+          formControlName="name"
           type="text"
-          placeholder="Full Name"
+          placeholder="Name *"
         ></ion-input>
       </ion-item>
-      <ion-item class="ion-no-padding">
-        <ion-input name="email" type="email" placeholder="E-mail"></ion-input>
-      </ion-item>
-      <ion-item class="ion-no-padding">
+      <p
+        class="input-error"
+        *ngIf="formGroup.controls['name'].dirty && formGroup.controls['name'].errors"
+      >
+        Invalid name
+      </p>
+      <ion-item>
         <ion-input
-          name="password"
+          formControlName="email"
+          type="email"
+          placeholder="E-mail *"
+        ></ion-input>
+      </ion-item>
+      <p
+        class="input-error"
+        *ngIf="formGroup.controls['email'].dirty && formGroup.controls['email'].errors"
+      >
+        Invalid email
+      </p>
+      <ion-item>
+        <ion-input
+          formControlName="password"
           type="password"
-          placeholder="Password"
+          placeholder="Password *"
         ></ion-input>
       </ion-item>
-      <ion-item class="ion-no-padding">
+      <p
+        class="input-error"
+        *ngIf="formGroup.controls['password'].dirty && formGroup.controls['password'].errors"
+      >
+        Invalid password
+      </p>
+      <ion-list class="no-padding" radio-group formControlName="type">
+        <ion-list-header>Client type *</ion-list-header>
+        <ion-item>
+          <ion-label>Physical person</ion-label>
+          <ion-radio checked="true" value="1"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Legal person</ion-label>
+          <ion-radio value="2"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <ion-item>
         <ion-input
-          name="confirm_password"
-          type="confirm_password"
-          placeholder="Confirm Password"
+          formControlName="cpfOrCnpj"
+          type="text"
+          placeholder="CPF or CNPJ *"
         ></ion-input>
       </ion-item>
+      <p
+        class="input-error"
+        *ngIf="formGroup.controls['cpfOrCnpj'].dirty && formGroup.controls['cpfOrCnpj'].errors"
+      >
+        Invalid CPF or CNPJ
+      </p>
+      <ion-item>
+        <ion-input
+          formControlName="zipCode"
+          type="text"
+          placeholder="Zip Code *"
+          (ionChange)="handleChangeZipCode()"
+        ></ion-input>
+      </ion-item>
+      <p
+        class="input-error"
+        *ngIf="formGroup.controls['zipCode'].dirty && formGroup.controls['zipCode'].errors"
+      >
+        Invalid zipcode
+      </p>
+      <ion-item>
+        <ion-input
+          formControlName="street"
+          type="text"
+          placeholder="Street *"
+        ></ion-input>
+      </ion-item>
+      <p
+        class="input-error"
+        *ngIf="formGroup.controls['street'].dirty && formGroup.controls['street'].errors"
+      >
+        Invalid street
+      </p>
+      <ion-item>
+        <ion-input
+          formControlName="number"
+          type="text"
+          placeholder="Number *"
+        ></ion-input>
+      </ion-item>
+      <p
+        class="input-error"
+        *ngIf="formGroup.controls['number'].dirty && formGroup.controls['number'].errors"
+      >
+        Invalid number
+      </p>
+      <ion-item>
+        <ion-input
+          formControlName="complement"
+          type="text"
+          placeholder="Complement"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          formControlName="neighborhood"
+          type="text"
+          placeholder="Neighborhood *"
+        ></ion-input>
+      </ion-item>
+      <p
+        class="input-error"
+        *ngIf="formGroup.controls['neighborhood'].dirty && formGroup.controls['neighborhood'].errors"
+      >
+        Invalid neighborhood
+      </p>
+      <ion-item>
+        <ion-label>State *</ion-label>
+        <ion-select formControlName="stateId" (ionChange)="updateCities()">
+          <ion-option
+            *ngFor="let state of states; first as f"
+            [value]="state.id"
+            [selected]="f"
+            >{{state.name}}</ion-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>City *</ion-label>
+        <ion-select formControlName="cityId">
+          <ion-option
+            *ngFor="let city of cities"
+            [value]="city.id"
+            [selected]="f"
+            >{{city.name}}</ion-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          formControlName="phone1"
+          type="text"
+          placeholder="Phone 1 *"
+        ></ion-input>
+      </ion-item>
+      <p
+        class="input-error"
+        *ngIf="formGroup.controls['phone1'].dirty && formGroup.controls['phone1'].errors"
+      >
+        Invalid phone1
+      </p>
+      <ion-item>
+        <ion-input
+          formControlName="phone2"
+          type="text"
+          placeholder="Phone 2"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          formControlName="phone3"
+          type="text"
+          placeholder="Phone 3"
+        ></ion-input>
+      </ion-item>
+      <button type="submit" class="button-submit" [disabled]="formGroup.invalid">
+        Create Account
+      </button>
     </form>
+    <div class="content-footer">
+      <span>Connect With:</span>
+      <section>
+        <img src="assets/imgs/signup/button-google-plus.svg" alt="Google Plus" />
+        <img src="assets/imgs/signup/button-facebook.svg" alt="Facebook" />
+      </section>
+      Already have an account?
+      <span (click)="goToLogin()">Login</span>
+    </div>
   </main>
 </ion-content>

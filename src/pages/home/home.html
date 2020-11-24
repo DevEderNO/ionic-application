@@ -1,5 +1,5 @@
 <ion-content>
-  <img class="img-logo" src="assets/imgs/logo.svg" alt="Tela Inicial" />
+  <img class="img-logo" src="assets/imgs/home/logo.svg" alt="Tela Inicial" />
   <main>
     <h1>Welcome Back!</h1>
     <p>Hi, Kindly login to continue battle</p>
@@ -21,12 +21,12 @@
           placeholder="Password"
         ></ion-input>
       </ion-item>
-      <p>Forgot password?</p>
+      <p (click)="goToForgot()">Forgot password?</p>
       <button (click)="login()">Let’s Combat!</button>
       <span>Connect With:</span>
       <section>
-        <img src="assets/imgs/button-google-plus.svg" alt="Google Plus" />
-        <img src="assets/imgs/button-facebook.svg" alt="Facebook" />
+        <img src="assets/imgs/home/button-google-plus.svg" alt="Google Plus" />
+        <img src="assets/imgs/home/button-facebook.svg" alt="Facebook" />
       </section>
       Don’t have an account?
       <span (click)="goToSignup()">Create Account</span>

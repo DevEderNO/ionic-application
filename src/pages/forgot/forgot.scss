@@ -1,0 +1,54 @@
+page-forgot {
+  header {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    .icon-back {
+      top: 25px;
+      left: 0;
+      position: absolute;
+    }
+    .image-forgot {
+      align-self: center;
+      margin: 46px auto;
+    }
+  }
+
+  main {
+    width: 80%;
+    align-self: center;
+    margin: 0 auto;
+
+    h1 {
+      width: 100%;
+    }
+
+    > p {
+      margin-bottom: 40px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      ion-item {
+        padding-left: 0 !important;
+        font-size: 14px !important;
+        color: #c2a5a2 !important;
+      }
+
+      button {
+        margin: 40px 0;
+        padding: 10px 50px !important;
+        background: linear-gradient(135deg, #ff6480 0%, #f22e63 100%);
+        color: $light;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 21px;
+        border-radius: 100px;
+      }
+    }
+  }
+}

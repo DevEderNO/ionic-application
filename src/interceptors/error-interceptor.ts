@@ -9,6 +9,7 @@ import { Injectable } from "@angular/core";
 import { AlertController } from "ionic-angular";
 import { Observable } from "rxjs";
 import { StorageService } from "../services/storage.service";
+import { IFieldMessage } from "../models/fieldmessage";
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -35,6 +36,10 @@ export class ErrorInterceptor implements HttpInterceptor {
           break;
         case 401:
           this.handle401();
+          break;
+        case 422:
+          this.handle422(errorObj);
+          break;
         default:
           this.handleDefualtError(errorObj);
           break;
@@ -58,6 +63,24 @@ export class ErrorInterceptor implements HttpInterceptor {
       buttons: [{ text: "Ok" }],
     });
     alert.present();
+  }
+
+  handle422(errorObj: any) {
+    let alert = this.alertCtrl.create({
+      title: "Validation error",
+      message: this.listErrors(errorObj.errors),
+      enableBackdropDismiss: false,
+      buttons: [{ text: "Ok" }],
+    });
+    alert.present();
+  }
+
+  listErrors(messages: IFieldMessage[]): string {
+    let s: string = "";
+    for (let i = 0; i < messages.length; i++) {
+      s += `<p><strong> ${messages[i].fieldName} </strong>: ${messages[i].message}</p>`;
+    }
+    return s;
   }
 
   handleDefualtError(errorObj: any) {

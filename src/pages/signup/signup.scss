@@ -1,3 +1,14 @@
+@use "sass:map";
+@import "../../theme/variables.scss";
+$primary: map-get(
+  $map: $colors,
+  $key: "primary",
+);
+$danger: map-get(
+  $map: $colors,
+  $key: "danger",
+);
+
 page-signup {
   img {
     width: 100%;
@@ -13,9 +24,87 @@ page-signup {
     form {
       display: flex;
       flex-direction: column;
+      margin-top: 20px;
 
-      .item .item-md {
-        padding-left: 0;
+      .item-select {
+        ion-label {
+          padding-left: 10px !important;
+        }
+        .select-text {
+          color: $primary;
+        }
+      }
+
+      .input-error {
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 18px;
+        color: $danger;
+        margin-left: 5px;
+      }
+
+      ion-item {
+        padding-left: 0 !important;
+        font-size: 14px !important;
+        color: #c2a5a2 !important;
+      }
+
+      ion-list-header {
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      ion-list {
+        padding-left: 7px;
+
+        .item {
+          height: 8px !important;
+        }
+
+        .item-radio {
+          padding-left: 10px !important;
+        }
+      }
+
+      .button-submit {
+        width: fit-content;
+        margin: 25px auto 10px auto;
+        padding: 10px 50px !important;
+        background: linear-gradient(135deg, #ff6480 0%, #f22e63 100%);
+        color: $light;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 21px;
+        border-radius: 100px;
+      }
+    }
+  }
+
+  .content-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > span {
+      margin: 10px 0;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 18px;
+      color: $primary;
+    }
+
+    section {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+
+      img {
+        width: 35px;
+        height: 35px;
+
+        + img {
+          margin-left: 10px;
+        }
       }
     }
   }

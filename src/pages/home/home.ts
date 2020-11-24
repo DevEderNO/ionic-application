@@ -28,7 +28,7 @@ export class HomePage {
     this.menu.swipeEnable(true);
   }
 
-  ionViewDidEnter(){
+  ionViewDidEnter() {
     this.auth.refreshToken().subscribe(
       (response) => {
         this.auth.successfullLogin(response.headers.get("Authorization"));
@@ -48,7 +48,11 @@ export class HomePage {
     );
   }
 
-  goToSignup(){
-    this.navCtrl.setRoot('SignupPage')
+  goToSignup() {
+    this.navCtrl.push("SignupPage");
+  }
+
+  goToForgot() {
+    this.navCtrl.push("ForgotPage");
   }
 }

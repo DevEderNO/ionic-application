@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { API_CONFIG } from "../../config/api.config";
 import { IClientDTO } from "../../models/client.dto";
-import { ClientService } from "../../services/client.service";
+import { ClientService } from "../../services/domain/client.service";
 import { StorageService } from "../../services/storage.service";
 
 @IonicPage()

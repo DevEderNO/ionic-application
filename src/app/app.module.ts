@@ -11,7 +11,7 @@ import { CategoryService } from "../services/domain/category.service";
 import { ErrorInterceptorProvider } from "../interceptors/error-interceptor";
 import { AuthService } from "../services/auth.service";
 import { StorageService } from "../services/storage.service";
-import { ClientService } from "../services/client.service";
+import { ClientService } from "../services/domain/client.service";
 import { AuthInterceptorProvider } from "../interceptors/auth-interceptor";
 
 @NgModule({
