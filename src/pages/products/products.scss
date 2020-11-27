@@ -1,0 +1,82 @@
+@use "sass:map";
+@import "../../theme/variables.scss";
+$primary: map-get(
+  $map: $colors,
+  $key: "primary",
+);
+
+page-products {
+  header {
+    img {
+      margin-top: 16px;
+      margin-bottom: 25px;
+    }
+  }
+
+  ion-scroll[scrollX] {
+    white-space: nowrap;
+    height: 200px !important;
+    .scroll-item {
+      display: inline-block;
+      width: fit-content;
+    }
+    .scroll-content {
+      padding: 0 !important;
+    }
+
+    .category {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid $primary;
+
+      img {
+        width: 125px;
+        height: 125px;
+        border-radius: 50%;
+      }
+    }
+
+    .category-selected {
+      background: linear-gradient(135deg, #ff6480 0%, #f22e63 100%);
+    }
+  }
+
+  .product-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+
+    .product {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      border-radius: 5px;
+      overflow: hidden;
+      line-height: 30px;
+      box-shadow: 0px 1px 4px 0px #FA5075;
+
+      > .image {
+        width: 100%;
+        height: 180px;
+        img {
+          object-fit: contain;
+          object-position: center;
+        }
+      }
+      > .content {
+        padding: 10px;
+
+        strong {
+          color: $primary;
+        }
+        span {
+          color: chartreuse;
+        }
+      }
+    }
+  }
+}

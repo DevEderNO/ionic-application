@@ -11,4 +11,10 @@ export class CategoryService {
   findAll(): Observable<ICategoryDTO[]> {
     return this.http.get<ICategoryDTO[]>(`${API_CONFIG.baseUrl}/categories`);
   }
+
+  find(id: number): Observable<ICategoryDTO> {
+    return this.http.get<ICategoryDTO>(
+      `${API_CONFIG.baseUrl}/categories/${id}`
+    );
+  }
 }

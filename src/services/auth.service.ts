@@ -20,14 +20,18 @@ export class AuthService {
   }
 
   refreshToken() {
-    return this.http.post(`${API_CONFIG.baseUrl}/auth/refresh_token`, {}, {
-      observe: "response",
-      responseType: "text",
-    });
+    return this.http.post(
+      `${API_CONFIG.baseUrl}/auth/refresh_token`,
+      {},
+      {
+        observe: "response",
+        responseType: "text",
+      }
+    );
   }
 
   successfullLogin(authorizationValue: string) {
-    let [_, token] = authorizationValue.split(" ");
+    let [, token] = authorizationValue.split(" ");
     let user: ILocalUser = {
       token,
       email: this.jwtHelper.decodeToken(token).sub,

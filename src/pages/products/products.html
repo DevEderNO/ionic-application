@@ -1,0 +1,40 @@
+<ion-content padding>
+  <header>
+    <img
+      src="assets/icon/arrow-back-outline.svg"
+      (click)="backPage()"
+      alt="arrow-back"
+    />
+  </header>
+
+  <h3>Categorias</h3>
+  <ion-scroll scrollX>
+    <ion-card class="scroll-item" *ngFor="let category of categories">
+      <div
+        [class]="category.id === selectedCategory ? 'category category-selected':'category'"
+        (click)="handleSelectedCategory(category.id)"
+      >
+        <img
+          src="{{bucketUrl}}/cat{{category.id}}.jpg"
+          alt="{{category.name}}"
+        />
+        <h2>{{category.name}}</h2>
+      </div>
+    </ion-card>
+  </ion-scroll>
+  <h3>Products</h3>
+  <div class="product-list">
+    <div class="product" *ngFor="let product of products">
+      <div class="image">
+        <img
+          src="{{bucketUrl}}/prod{{product.id}}-small.jpg"
+          alt="{{product.name}}"
+        />
+      </div>
+      <div class="content">
+        <strong>{{product.name}}</strong>
+        <p>$ <span class="price">{{product.price}}</span></p>
+      </div>
+    </div>
+  </div>
+</ion-content>
